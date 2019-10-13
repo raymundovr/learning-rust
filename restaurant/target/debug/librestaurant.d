@@ -1,1 +1,1 @@
-/home/r/Aprendiendo/learning-rust/restaurant/target/debug/librestaurant.rlib: /home/r/Aprendiendo/learning-rust/restaurant/src/lib.rs
+/Users/r/Aprendizaje/rust/restaurant/target/debug/librestaurant.rlib: /Users/r/Aprendizaje/rust/restaurant/src/lib.rs
