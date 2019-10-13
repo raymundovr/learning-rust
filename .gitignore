@@ -1,3 +1,4 @@
 rustlings/
 debug/
 *~
+/target/
