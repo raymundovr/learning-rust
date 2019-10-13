@@ -21,7 +21,7 @@ fn generate_random_integers(quantity: u8) -> Vec<u8> {
 	x += 1;
     }
     
-    random_ints
+    random_ints.sort()
 }
 
 
@@ -36,3 +36,7 @@ fn calculate_mean(integers: &Vec<u8>) -> f32 {
     
     sum / (integers.len() as f32)
 }
+
+//fn calculate_median(integers: &Vec<u8>) -> u8 {
+//    
+//}
