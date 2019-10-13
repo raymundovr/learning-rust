@@ -47,11 +47,17 @@ fn calculate_median(integers: &Vec<u8>) -> u8 {
     }
 }
 
-fn calculate_mode(integers: &Vec<u8>) -> HashMap<u8, u8> {
-    let mut mode: HashMap<u8, u8> = HashMap::new();
+fn calculate_mode(integers: &Vec<u8>) -> (u8, u8) {
+    let mut occurrences: HashMap<u8, u8> = HashMap::new();
+    //Holds the value, occurrence
+    let mut val_occurrences: (u8, u8) = (0, 0);
     for i in integers {
-        let count = mode.entry(*i).or_insert(0);
+        let count = occurrences.entry(*i).or_insert(0);
         *count += 1;
+        if count > &mut val_occurrences.1 {
+            val_occurrences = (*i, *count);
+        }
     }
-    mode
+
+    val_occurrences
 }
