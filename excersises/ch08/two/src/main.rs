@@ -13,6 +13,8 @@ fn main() {
         .read_line(&mut entry)
         .expect("Failed to read line");
 
+    entry.pop(); //Remove \n
+
     println!(
         "You entered: {}\nPig latin equivalent: {}",
         entry,
@@ -23,16 +25,18 @@ fn main() {
 fn convert_to_pig_latin(entry: &String) -> String {
     let words: Vec<&str> = entry.split(' ').collect();
     let mut converted = String::from("");
+    let vowels = ["a", "e", "i", "o", "u"];
 
     for w in &words {
-        converted = format!("{} {}", converted, &convert_word(w));
+        //let first_char = w.chars().next().unwrap();
+        let (first_char, last_chars) = w.split_at(1);
+        let mut converted_word;
+        if vowels.contains(&first_char) {
+            converted_word = format!("{}-hay", w);
+        } else {
+            converted_word = format!("{}-{}ay", last_chars, first_char);
+        }
+        converted = format!("{} {}", converted, converted_word);
     }
     converted
-}
-
-fn convert_word(word: &str) -> String {
-    let converted = String::from(word);
-    let first_character = word.chars().next().unwrap();
-
-    first_character.to_string()
 }
