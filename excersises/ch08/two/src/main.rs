@@ -13,11 +13,9 @@ fn main() {
         .read_line(&mut entry)
         .expect("Failed to read line");
 
-    entry.pop(); //Remove \n
-
     println!(
         "You entered: {}\nPig latin equivalent: {}",
-        entry,
+        entry.trim(),
         convert_to_pig_latin(&entry)
     );
 }
